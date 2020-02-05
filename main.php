@@ -218,8 +218,12 @@ function create_itemdatabase( $arr ) {
                     $secretIngredients  = $v2['secretIngredients'];
 
                     if ( $resultType != "" ) {
-                        $blueprint[ $uniqueName ] = $resultType;
-                    };
+                        $blueprint[] = array(
+                            'uniqueName' => $uniqueName,
+                            'resultType' => $resultType,
+                            'num' => $num
+                        );
+                    }
                 }
                 break;
             case 'ExportRegions':
@@ -403,15 +407,22 @@ function create_itemdatabase( $arr ) {
             }
         }
     }
-    foreach( $blueprint as $k => $v ) {
-        $uniqueName = $k;
-        $parentName = $v;
+    foreach( $blueprint as $v ) {
+        $uniqueName = $v['uniqueName'];
+        $parentName = $v['resultType'];
+        $num        = $v['num'];
         if ( isset( $itemdatabase[ $parentName ] ) ) {
-            insert_itemdatabase( $uniqueName, sprintf( $blueprint_str, $itemdatabase[ $parentName ] ) );
+            $name = $itemdatabase[ $parentName ];
         } else {
             echo "undefined builded item " . $parentName . PHP_EOL;
-            insert_itemdatabase( $uniqueName, sprintf( $blueprint_str, $parentName ) );
+            $name = $parentName;
         }
+        if ( $num > 1 ) {
+            // multiple, ex. "10 x CIPHER"
+            $name = sprintf( "%d x %s", $num, $name );
+        }
+        $name = sprintf( $blueprint_str, $name );
+        insert_itemdatabase( $uniqueName, $name );
     }
 
     ksort( $itemdatabase );
