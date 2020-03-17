@@ -143,7 +143,7 @@ function create_itemdatabase( $arr ) {
                     $uniqueName         = $v2['uniqueName'];
                     $name               = $v2['name'];
                     $descripton         = $v2['description'];
-                    $longdescripton     = $v2['longDescription'];
+                    $longdescripton     = isset( $v2['longDescription'] ) ? $v2['longDescription'] : '';
                     $binCount           = $v2['binCount'];
                     $binCapacity        = $v2['binCapacity'];
                     $fillRate           = $v2['fillRate'];
@@ -161,7 +161,7 @@ function create_itemdatabase( $arr ) {
                     $uniqueName     = $v2['uniqueName'];
                     $name           = $v2['name'];
                     $descripton     = $v2['description'];
-                    $longDescripton = $v2['longDescription'];
+                    $longDescripton = isset( $v2['longDescription'] ) ? $v2['longDescription'] : '';
                     $codexSecret    = $v2['codexSecret'];
 
                     insert_itemdatabase( $uniqueName, $name );
@@ -172,7 +172,7 @@ function create_itemdatabase( $arr ) {
                     // fusionbundle. what is this?
                     $uniqueName     = $v2['uniqueName'];
                     $descripton     = $v2['description'];
-                    $longDescripton = $v2['longDescription'];
+                    $longDescripton = isset( $v2['longDescription'] ) ? $v2['longDescription'] : '';
                     $codexSecret    = $v2['codexSecret'];
                     $fusionPoints   = $v2['fusionPoints'];
                 }
@@ -183,7 +183,7 @@ function create_itemdatabase( $arr ) {
                     $uniqueName     = $v2['uniqueName'];
                     $name           = $v2['name'];
                     $descripton     = $v2['description'];
-                    $longDescripton = $v2['longDescription'];
+                    $longDescripton = isset( $v2['longDescription'] ) ? $v2['longDescription'] : '';
                     $codexSecret    = $v2['codexSecret'];
                     $parentName     = $v2['parentName'];
 
@@ -196,7 +196,7 @@ function create_itemdatabase( $arr ) {
                     $uniqueName     = $v2['uniqueName'];
                     $name           = $v2['name'];
                     $descripton     = $v2['description'];
-                    $longDescripton = $v2['longDescription'];
+                    $longDescripton = isset( $v2['longDescription'] ) ? $v2['longDescription'] : '';
                     $parentName     = $v2['parentName'];
                     $codexSecret    = $v2['codexSecret'];
 
@@ -239,7 +239,7 @@ function create_itemdatabase( $arr ) {
                     $factionIndex       = $v2['factionIndex'];  // 2
                     $minEnemyLevel      = $v2['minEnemyLevel']; // 6
                     $maxEnemyLevel      = $v2['maxEnemyLevel']; // 11
-                    $levelOverride      = $v2['levelOverride']; // false
+                    $levelOverride      = isset( $v2['levelOverride'] ) ? $v2['levelOverride'] : false; // false
                     insert_nodedatabase( $uniqueName, $name, $systemIndex );
                     insert_nodesystemdatabase( $systemIndex, $systemName );
                 }
@@ -266,7 +266,7 @@ function create_itemdatabase( $arr ) {
                     $uniqueName     = $v2['uniqueName'];
                     $name           = $v2['name'];
                     $descripton     = $v2['description'];
-                    $longDescripton = $v2['longDescription'];
+                    $longDescripton = isset( $v2['longDescription'] ) ? $v2['longDescription'] : '';
                     $codexSecret    = $v2['codexSecret'];
                     $parentName     = $v2['parentName'];
 
@@ -279,7 +279,7 @@ function create_itemdatabase( $arr ) {
                     $uniqueName     = $v2['uniqueName'];
                     $name           = $v2['name'];
                     $descripton     = $v2['description'];
-                    $longDescripton = $v2['longDescription'];
+                    $longDescripton = isset( $v2['longDescription'] ) ? $v2['longDescription'] : '';
                     $health         = $v2['health'];
                     $shield         = $v2['shield'];
                     $armor          = $v2['armor'];
@@ -348,7 +348,7 @@ function create_itemdatabase( $arr ) {
                     $name           = $v2['name'];            // AMESHA
                     $parentName     = $v2['parentName'];      // /Lotus/Types/...
                     $descripton     = $v2['description'];     // Transform into a winged guardian.
-                    $longDescripton = $v2['longDescription']; //
+                    $longDescripton = isset( $v2['longDescription'] ) ? $v2['longDescription'] : ''; //
                     $health         = $v2['health'];          // 400
                     $shield         = $v2['shield'];          // 200
                     $armor          = $v2['armor'];           // 200
